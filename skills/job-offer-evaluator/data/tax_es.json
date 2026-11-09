@@ -1,0 +1,18 @@
+{
+  "country": "ES",
+  "tax_year": 2025,
+  "verified_on": "2026-11-09",
+  "verified_by": "approximation by Claude, NOT checked against AEAT/Seguridad Social; run the refresh procedure in SKILL.md",
+  "sources": [
+    "https://sede.agenciatributaria.gob.es (escala general IRPF, estatal + autonomica)",
+    "https://www.seg-social.es (tabla de cuotas RETA por rendimientos netos, bases maximas, MEI)"
+  ],
+  "irpf_scale": [[12450, 0.19], [20200, 0.24], [35200, 0.30], [60000, 0.37], [300000, 0.45], [null, 0.47]],
+  "personal_minimum": 5550,
+  "employee_other_expenses": 2000,
+  "ss_employee_rate": 0.065,
+  "ss_base_cap_annual": 61000,
+  "autonomo_tramos_monthly_net_yield_to_cuota": [[670, 200], [900, 220], [1166.7, 260], [1300, 280], [1700, 294], [1850, 350], [2030, 370], [2330, 390], [2760, 420], [3190, 450], [3620, 480], [4050, 510], [6000, 530], [null, 590]],
+  "autonomo_hard_to_justify_rate": 0.05,
+  "autonomo_hard_to_justify_cap": 2000
+}

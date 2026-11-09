@@ -33,7 +33,7 @@ Send questions as one grouped message (use your structured-question tool if the 
 
 **1. Financial baseline and contract structure**
 - Current gross base salary and annual target bonus/variable (and how reliably it pays out).
-- Contract type: Spanish indefinido/temporary employment, EOR, autónomo/freelance, US W2 vs 1099, other.
+- Contract type, in their own words (indefinido, autónomo, B2B, W-2, 1099, EOR...). Map it to one of the two statuses in `references/terminology.md`: `employee` or `self_employed`. Read that file when the wording is unclear; "B2B", "freelance", "contractor" and "autónomo" are all `self_employed`.
 - Payment installments (12 or 14). This changes monthly cash flow, not annual net, but matters when comparing monthly figures.
 
 **2. Location and tax context**
@@ -51,11 +51,11 @@ Send questions as one grouped message (use your structured-question tool if the 
 **5. Decision threshold**
 - The minimum net uplift that would make a move worth it, e.g. "+15% effective net" (suggest around +15-20% for a job change, higher for B2B or less stable offers, and let them override it). Ask about hard dealbreakers (on-site, contractor-only, specific sector).
 
-Per offer (never stored in the profile): for B2B/hourly, realistic billable hours per year and expected gaps between contracts; for non-EUR pay, the FX rate (Step 2 fetches it).
+Per offer (never stored in the profile): for self-employed/hourly offers (often called B2B), realistic billable hours per year and expected gaps between contracts; for non-EUR pay, the FX rate (Step 2 fetches it).
 
 ## Step 2: Net take-home comparison
 
-Compare net, not gross, for the current job and the offer. Net means after social security, income tax, and for freelancers the self-employment costs (cuota de autónomos, gestor, insurance). Then add the yearly value of non-cash benefits and subtract out-of-pocket work costs to get an **effective net**.
+Compare net, not gross, for the current job and the offer. Net means after social security, income tax, and for self-employed work the self-employment costs (cuota de autónomos, gestor, insurance). Then add the yearly value of non-cash benefits and subtract out-of-pocket work costs to get an **effective net**.
 
 - **FX:** for non-EUR offers run `python3 scripts/fetch_fx.py USD` (ECB rate via frankfurter.dev) and use that rate, quoting the date. If the lookup fails, ask the user for a rate.
 - **Run the script:** `python3 scripts/net_compare.py` (see `--help`). The current job is taxed in `--country`, the offer in `--offer-country` (default: the same). It takes the current contract type, gross (including expected variable), benefits, extra costs, regional adjustment and offer details, and prints net, effective net (in EUR), delta and, with `--threshold`, whether the uplift clears the bar. `--irpf-shift` (alias `--region-adjust`) is the regional adjustment for the current country and `--offer-region-adjust` for the offer country; say what you passed.
@@ -65,7 +65,7 @@ Compare net, not gross, for the current job and the offer. Net means after socia
 - **Tax modules:** country rules live in `scripts/tax/<cc>.py` with their numbers in `data/tax_<cc>.json`; Spain (ES) and the United States (US) exist. For other countries (Switzerland, UK, etc.) estimate net manually from current tax bands and social-security rules (web search for current-year figures), show the main steps, and label it a rough estimate. If offers from that country keep coming, suggest building a module (`references/adding-a-country.md`).
 - **Staleness check:** `net_compare.py` prints a `WARNING` when the tax data is out of date or unverified. When you see it, tell the user and offer the refresh procedure below before relying on the numbers.
 - Always state the assumptions used: FX rate, billable hours, expenses, region, tax year. Say the result is an estimate and a gestor/tax advisor should confirm it for a real decision.
-- For B2B, the net still ignores what an employee gets for free: paid vacation, paid sick leave, unemployment protection, pension accrual, employer contributions. Give the "equivalent employee gross" and flag contract risks (single client, notice terms, false self-employment risk, exclusivity).
+- For self-employed (B2B) offers, the net still ignores what an employee gets for free: paid vacation, paid sick leave, unemployment protection, pension accrual, employer contributions. Give the "equivalent employee gross" and flag contract risks (single client, notice terms, false self-employment risk, exclusivity).
 
 ## Step 3: Fit and conditions
 

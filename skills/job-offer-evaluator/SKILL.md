@@ -29,7 +29,7 @@ Salary figures and conditions change, and a wrong assumption silently ruins the 
 - **Profile is empty or missing (first run):** run the full interview below, then write the answers to `<data_dir>/profile.md` and set `last_verified` to today.
 - After any change, update `profile.md` (keep the existing layout) so the next run is a quick confirmation.
 
-Send questions as one grouped message (use AskUserQuestion if available), together with any offer details that are missing.
+Send questions as one grouped message (use your structured-question tool if the agent has one), together with any offer details that are missing.
 
 **1. Financial baseline and contract structure**
 - Current gross base salary and annual target bonus/variable (and how reliably it pays out).
@@ -94,7 +94,7 @@ After the verdict, append one row to `<data_dir>/offers_log.md` (Date, Company a
 3. On their approval, edit the JSON, set `tax_year`, `verified_on` to today, and `verified_by` to the sources actually read (drop the "NOT checked" wording only if you really verified against official pages).
 4. Rerun a sample comparison to check nothing broke.
 
-A scheduled nudge is optional: if the user wants a real reminder in January, offer to create one with the `schedule` skill that opens a session running this refresh.
+A scheduled nudge is optional: if the user wants a real reminder in January, offer to set one up with whatever scheduling mechanism the agent or the OS provides (cron, a scheduled agent task, a calendar event) that opens a session running this refresh.
 
 ## Output format
 

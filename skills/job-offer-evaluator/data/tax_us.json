@@ -1,0 +1,24 @@
+{
+  "country": "US",
+  "currency": "USD",
+  "tax_year": 2026,
+  "verified_on": "2026-11-09",
+  "verified_by": "Federal single-filer brackets, standard deduction and Social Security wage base read from IRS pages and Rev. Proc. 2025-32 via web search. Additional Medicare Tax (0.9%) and the self-employment formula are from general knowledge, not re-read this session. State tax is NOT modelled: a user-supplied effective rate is used.",
+  "sources": [
+    "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf (2026 brackets, standard deduction)",
+    "https://www.irs.gov/newsroom/working-families-tax-cuts-individuals-and-workers",
+    "https://www.ssa.gov/OACT/cola/cbb.html (Social Security wage base)",
+    "https://www.irs.gov/taxtopics/tc751 (FICA rates)"
+  ],
+  "filing_status_modelled": "single",
+  "federal_scale_single": [[12400, 0.10], [50400, 0.12], [105700, 0.22], [201775, 0.24], [256225, 0.32], [640600, 0.35], [null, 0.37]],
+  "standard_deduction": 16100,
+  "ss_wage_base": 184500,
+  "ss_rate_employee": 0.062,
+  "ss_rate_self_employed": 0.124,
+  "medicare_rate_employee": 0.0145,
+  "medicare_rate_self_employed": 0.029,
+  "additional_medicare_rate": 0.009,
+  "additional_medicare_threshold_single": 200000,
+  "se_net_earnings_factor": 0.9235
+}

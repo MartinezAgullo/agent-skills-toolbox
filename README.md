@@ -6,7 +6,7 @@ A collection of reusable agent skills. Each skill lives in its own folder under 
 
 | Skill | What it does |
 |---|---|
-| [job-offer-evaluator](skills/job-offer-evaluator) | Triage a recruiter message or job offer: net take-home comparison (Spain only for now), CV fit, conditions, recruiter questions and a reply draft. |
+| [job-offer-evaluator](skills/job-offer-evaluator) | Triage a recruiter message or job offer: net take-home comparison (Spain and US), CV fit, conditions, recruiter questions and a reply draft. |
 
 ## Install
 

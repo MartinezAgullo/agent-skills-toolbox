@@ -7,6 +7,8 @@ DATA = Path(__file__).resolve().parents[2] / "data" / "tax_es.json"
 
 
 class Module:
+    currency = "EUR"
+
     def __init__(self, regional_shift: float = 0.0):
         self.params = json.loads(DATA.read_text())
         self.shift = regional_shift

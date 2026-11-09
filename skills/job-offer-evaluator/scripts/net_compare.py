@@ -49,10 +49,13 @@ def main():
     off = taxmods.load(off_cc, off_region)
     cur_ccy, off_ccy = getattr(cur, "currency", "EUR"), getattr(off, "currency", "EUR")
 
-    for tm in {id(cur): cur, id(off): off}.values():
+    warnings = []
+    for tm in (cur, off):
         w = tm.staleness()
-        if w:
-            print(f"WARNING  {w}")
+        if w and w not in warnings:
+            warnings.append(w)
+    for w in warnings:
+        print(f"WARNING  {w}")
 
     # current job
     if a.current_contract == "employee":

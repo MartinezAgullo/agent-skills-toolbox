@@ -43,9 +43,9 @@ class Module:
 
     def staleness(self, today=None):
         today = today or date.today()
-        if today.year > self.params["tax_year"] + 1 or "NOT checked" in self.params["verified_by"] or "NOT" in self.params["verified_by"]:
-            return (f"Tax data is for {self.params['tax_year']} and was not verified against official sources "
-                    f"(last touched {self.params['verified_on']}). Run the refresh procedure before trusting the numbers.")
         if today.year > self.params["tax_year"]:
-            return f"Tax data is for {self.params['tax_year']}; a new year is available. Refresh it."
+            return f"Spanish tax data is for {self.params['tax_year']}; refresh it for {today.year}."
+        items = self.params.get("unverified")
+        if items:
+            return "Spanish tax data refreshed " + self.params["verified_on"] + "; still unverified: " + "; ".join(items) + "."
         return None

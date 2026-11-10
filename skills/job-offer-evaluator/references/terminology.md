@@ -14,6 +14,9 @@ Recruiters, the CV and the tax code use different words for the same few situati
 - **Autónomo económicamente dependiente (TRADE)** is a Spanish legal figure for an autónomo who earns most of their income from one client. It adds obligations and is the legal risk behind "B2B for a long-term single-client role" (see `recruiter-signals.md`).
 - **Hourly rate vs annual salary** is about how the pay is quoted, not about the status. An hourly rate is usually `self_employed`, but employees can be paid hourly too.
 
+## Fiscal residence (Spain): which community's IRPF applies
+Spanish IRPF has a state part (same everywhere) and an autonomic part that each autonomous community sets for itself. The community that counts is the one of **fiscal residence**: where the taxpayer habitually resides on 31 December of the tax year. It is **not** the place the job is located (office, client site) and **not** the registered seat of the employer or the recruiter's agency. Working remotely for a company in another community changes nothing: tax follows where the person lives. Foral regimes (País Vasco, Navarra) and Ceuta/Melilla have their own rules and are not modelled; the script falls back to the state scale with a visible warning.
+
 ## How to map what the user says
 1. Ask which of the two statuses applies, using the user's own words ("indefinido", "autónomo", "B2B", "W-2", "1099").
 2. Pass the matching value (or any alias) to `--current-contract` and `--offer-type`.

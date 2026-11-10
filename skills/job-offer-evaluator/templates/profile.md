@@ -13,6 +13,7 @@ last_verified: never
 ## Tax context
 - country: ?
 - region_or_city: ?
+- fiscal_residence_region (Spain: autonomous community where you live on 31 December, not the workplace or the employer's seat): ?
 - special_regimes_or_deductions: ?
 
 ## Benefits and out-of-pocket costs

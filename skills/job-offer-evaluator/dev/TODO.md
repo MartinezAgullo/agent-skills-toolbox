@@ -3,9 +3,9 @@
 Ordered roughly by value. Tick items off as they are done.
 
 ## High
-- [ ] **Regional IRPF scales** (Madrid, Cataluña, C. Valenciana, Andalucía, Cantabria) with a warning and state-scale fallback for any other region. Prompt ready in `dev/prompt-irpf-regional-scales.md`.
+- [x] **Regional IRPF scales** (Madrid, Cataluña, C. Valenciana, Andalucía, Cantabria) with a warning and state-scale fallback for any other region. Done 2026-11-09: `data/tax_es_regions.json`, tests in `scripts/tests/`. Follow-ups: add the other communities (Galicia, Murcia, Castilla-La Mancha, Castilla y León, Asturias, Aragón, Canarias, Extremadura, Baleares, La Rioja); regional deductions and non-general minimums are not modelled.
 - [ ] **First end-to-end run on a real offer** with the real profile: fills `~/.claude/job-search/profile.md`, exercises the interview, the `last_verified` flow and the offers log. Use the Grid Dynamics message.
-- [ ] **Close the unverified items** listed in `data/tax_es.json` (`unverified`): 2,000 EUR employee work-expenses deduction, employee MEI 0.15%, RETA rates read verbatim from the BOE order (art. 18 and 37), autonomic scale assumption.
+- [ ] **Close the unverified items** listed in `data/tax_es.json` (`unverified`): 2,000 EUR employee work-expenses deduction, employee MEI 0.15%, RETA rates read verbatim from the BOE order (art. 18 and 37), (autonomic scale assumption is now closed for the five modelled communities).
 - [ ] **Re-read the US figures not verified yet**: Additional Medicare Tax 0.9% and self-employment tax rules (see `data/tax_us.json` `verified_by`).
 
 ## Medium

@@ -1,0 +1,104 @@
+{
+  "madrid": {
+    "name": "Comunidad de Madrid",
+    "aliases": ["Madrid", "Comunidad de Madrid", "Comunidad Madrid"],
+    "tax_year": 2026,
+    "scale": [[13362.22, 0.085], [19004.63, 0.107], [35425.68, 0.128], [57320.40, 0.174], [null, 0.205]],
+    "personal_minimum": 5956.65,
+    "verified_on": "2026-11-09",
+    "verified_by": "Scale and general personal minimum read verbatim from the BOE consolidated text of Decreto Legislativo 1/2010 (art. 1 and art. 2; BOE consolidated texts are informative, the BOCM original was not read). Cross-checked: the 'cuota integra' column of the table matches the rates; AEAT Manual de Renta 2025 shows the identical scale; the Ministerio de Hacienda report 'Tributacion Autonomica. Medidas 2026' (updated 2026-09-23) states Madrid has five brackets, 8.50% to 20.50% above 57,320.40 and lists Madrid as unchanged vs 2025 (only Extremadura and Comunitat Valenciana changed their scale for 2026).",
+    "sources": [
+      {"url": "https://www.boe.es/buscar/act.php?id=BOCM-m-2010-90068", "doc": "Decreto Legislativo 1/2010 (BOCM 25-10-2010), consolidated text on BOE, art. 1 (scale) and art. 2 (minimum)", "read": "verbatim"},
+      {"url": "https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025/c15-calculo-impuesto-determinacion-cuotas-integras/gravamen-base-liquidable-general/gravamen-autonomico/comunidad-madrid.html", "doc": "AEAT Manual practico de Renta 2025, Madrid autonomic scale (exercise 2025)", "read": "verbatim (independent cross-check)"},
+      {"url": "https://www.hacienda.gob.es/sgfal/financiacionterritorial/autonomica/capitulo-i-tributacion-autonomica-2026.pdf", "doc": "Ministerio de Hacienda, Tributacion Autonomica. Medidas 2026, chapter I, section 1.1 and annex I", "read": "verbatim text; annex scale charts are images, only bracket count, min/max rate and last threshold are stated in text"}
+    ],
+    "unverified": [],
+    "notes": [
+      "Madrid raises the personal minimum for the autonomic part only (5,956.65 vs 5,550 state); modelled for the general taxpayer minimum.",
+      "NOT modelled: regional deductions (rent, children, large family, etc.), autonomic minimums for age over 65/75, descendants, ascendants and disability, savings-base scale, joint filing.",
+      "A 2027 reduction of the autonomic bracket was announced in the press; it is not in the law texts read and does not apply to 2026."
+    ]
+  },
+  "cataluna": {
+    "name": "Cataluña",
+    "aliases": ["Cataluña", "Catalunya", "Cataluna", "Catalonia"],
+    "tax_year": 2026,
+    "scale": [[12500, 0.095], [22000, 0.125], [33000, 0.16], [53000, 0.19], [90000, 0.215], [120000, 0.235], [175000, 0.245], [null, 0.255]],
+    "personal_minimum": 5550,
+    "verified_on": "2026-11-09",
+    "verified_by": "Scale read verbatim in two official texts: Decret-llei 5/2025 art. 3.1 (DOGC num. 9379, 26-3-2025, effective 2025-01-01) and the BOE consolidated Codi tributari de Catalunya art. 611-1 (consolidation published 2026-05-22), which also fixes the general personal minimum at 5,550 (art. 611-2). The 'cuota integra' column matches the rates; AEAT Manual de Renta 2025 shows the identical scale; the Ministerio de Hacienda report Medidas 2026 states eight brackets, 9.5% to 25.5% above 175,000 and no scale change vs 2025 for Cataluña. No deflation clause was found in the text of Decret-llei 5/2025 (a third-party newsletter claimed one; not used).",
+    "sources": [
+      {"url": "https://www.boe.es/ccaa/dogc/2025/9379/f00001-00028.pdf", "doc": "Decret-llei 5/2025, DOGC 9379 (copy hosted by BOE), art. 3.1 (new art. 611-1)", "read": "verbatim"},
+      {"url": "https://www.boe.es/buscar/act.php?id=BOE-A-2024-6951", "doc": "Decreto Legislativo 1/2024, Codi tributari de Catalunya llibre sise, consolidated text on BOE, art. 611-1 and 611-2", "read": "verbatim"},
+      {"url": "https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025/c15-calculo-impuesto-determinacion-cuotas-integras/gravamen-base-liquidable-general/gravamen-autonomico/comunidad-autonoma-cataluna.html", "doc": "AEAT Manual practico de Renta 2025, Cataluña autonomic scale (exercise 2025)", "read": "verbatim (independent cross-check)"},
+      {"url": "https://www.hacienda.gob.es/sgfal/financiacionterritorial/autonomica/capitulo-i-tributacion-autonomica-2026.pdf", "doc": "Ministerio de Hacienda, Tributacion Autonomica. Medidas 2026, chapter I, section 1.1", "read": "verbatim text; annex charts are images"}
+    ],
+    "unverified": [],
+    "notes": [
+      "The Agencia Tributaria de Catalunya web page only labels the table as exercise 2025; the 2026 value rests on the consolidated Codi tributari and the Hacienda report (no change).",
+      "NOT modelled: regional deductions (birth, rent, etc.), minimums other than the general taxpayer one (same as the state one), savings-base scale, joint filing."
+    ]
+  },
+  "comunitat_valenciana": {
+    "name": "Comunitat Valenciana",
+    "aliases": ["Comunitat Valenciana", "Comunidad Valenciana", "Valencia", "Pais Valenciano"],
+    "tax_year": 2026,
+    "scale": [[12000, 0.088], [22000, 0.117], [32000, 0.146], [42000, 0.17], [52000, 0.194], [62000, 0.219], [72000, 0.244], [100000, 0.261], [150000, 0.2735], [200000, 0.2835], [null, 0.2935]],
+    "personal_minimum": 6105,
+    "verified_on": "2026-11-09",
+    "verified_by": "Scale read verbatim in Ley 5/2026 de 31 de julio, art. 18 (DOGV num. 10425, 10-8-2026, page 23, copy hosted by BOE; effective for events accruing from 2026-01-01) and in the BOE consolidated Ley 13/1997 art. 2, which also fixes the general personal minimum at 6,105 (art. 2 bis). The 'cuota integra' column matches the rates. The corrección de errores DOGV-r-2026-90216 only restates the preamble. Hacienda's Medidas 2026 report states eleven brackets, 8.8% to 29.35% above 200,000 and that Comunitat Valenciana lowered every bracket for 2026.",
+    "sources": [
+      {"url": "https://boe.es/ccaa/dogv/2026/10425/r00001-00125.pdf", "doc": "Ley 5/2026, DOGV 10425 (copy hosted by BOE), art. 18 (2026 scale, page 23) and disposicion transitoria tercera (2027 scale, NOT used)", "read": "verbatim"},
+      {"url": "https://www.boe.es/buscar/act.php?id=BOE-A-1998-8202", "doc": "Ley 13/1997, consolidated text on BOE, art. 2 (scale) and art. 2 bis (personal minimum)", "read": "verbatim"},
+      {"url": "https://www.boe.es/buscar/doc.php?id=DOGV-r-2026-90216", "doc": "Correccion de errores de la Ley 5/2026 (preamble only)", "read": "verbatim, no effect on the scale"},
+      {"url": "https://www.hacienda.gob.es/sgfal/financiacionterritorial/autonomica/capitulo-i-tributacion-autonomica-2026.pdf", "doc": "Ministerio de Hacienda, Tributacion Autonomica. Medidas 2026, chapter I, section 1.1 and footnote 3", "read": "verbatim text; annex charts are images"}
+    ],
+    "unverified": [
+      "AEAT Manual de Renta 2025 still shows the pre-reform 2025 scale (9.00% to 29.50%); no AEAT publication confirms the 2026 scale yet, only the law text and the Hacienda report (end points)"
+    ],
+    "notes": [
+      "The 2027 scale (8.7% to 29.25%, disposicion transitoria tercera) is already approved but NOT used: this module models tax year 2026.",
+      "NOT modelled: regional deductions, minimums other than the general taxpayer one (raised to 6,105 in the autonomic part), savings-base scale, joint filing."
+    ]
+  },
+  "andalucia": {
+    "name": "Andalucía",
+    "aliases": ["Andalucía", "Andalucia"],
+    "tax_year": 2026,
+    "scale": [[13000, 0.095], [21100, 0.12], [35200, 0.15], [60000, 0.185], [null, 0.225]],
+    "personal_minimum": 5790,
+    "verified_on": "2026-11-09",
+    "verified_by": "Scale and general personal minimum read verbatim from the BOE consolidated Ley 5/2021 de Tributos Cedidos (art. 23 and art. 23 bis; BOE consolidated text is informative, the BOJA original was not read). The Ley 8/2025 de Presupuesto 2026 (BOJA 31-12-2025) was read and changes deductions only, not the scale. The 'cuota integra' column matches the rates; AEAT Manual de Renta 2025 shows the identical scale; the Ministerio de Hacienda report Medidas 2026 states five brackets, 9.5% to 22.5% above 60,000 and no scale change vs 2025.",
+    "sources": [
+      {"url": "https://www.boe.es/buscar/act.php?id=BOE-A-2021-17915", "doc": "Ley 5/2021 de Tributos Cedidos de Andalucia, consolidated text on BOE, art. 23 (scale) and art. 23 bis (minimum)", "read": "verbatim"},
+      {"url": "https://www.juntadeandalucia.es/sites/default/files/2026-02/Ley-Presupuesto-2026.pdf", "doc": "Ley 8/2025 del Presupuesto de Andalucia para 2026 (BOJA 251, 31-12-2025)", "read": "searched for scale changes, none found"},
+      {"url": "https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025/c15-calculo-impuesto-determinacion-cuotas-integras/gravamen-base-liquidable-general/gravamen-autonomico/comunidad-autonoma-andalucia.html", "doc": "AEAT Manual practico de Renta 2025, Andalucia autonomic scale (exercise 2025)", "read": "verbatim (independent cross-check)"},
+      {"url": "https://www.hacienda.gob.es/sgfal/financiacionterritorial/autonomica/capitulo-i-tributacion-autonomica-2026.pdf", "doc": "Ministerio de Hacienda, Tributacion Autonomica. Medidas 2026, chapter I, section 1.1", "read": "verbatim text; annex charts are images"}
+    ],
+    "unverified": [],
+    "notes": [
+      "The Junta announced a gradual 0.25 point cut per year; Hacienda's Medidas 2026 report lists Andalucia as unchanged for 2026, so none is applied.",
+      "NOT modelled: regional deductions (rent, children, sport, etc.), autonomic minimums for age, descendants, ascendants and disability, savings-base scale, joint filing."
+    ]
+  },
+  "cantabria": {
+    "name": "Cantabria",
+    "aliases": ["Cantabria"],
+    "tax_year": 2026,
+    "scale": [[13000, 0.085], [21000, 0.11], [35200, 0.145], [60000, 0.18], [90000, 0.225], [null, 0.245]],
+    "verified_on": "2026-11-09",
+    "verified_by": "Scale read verbatim from the BOE consolidated Decreto Legislativo 62/2008 art. 1 and in Ley 3/2023 art. 3.Uno (BOE-A-2024-1373, the amendment that set six brackets); both tables are identical and the 'cuota integra' column matches the rates. Ley de Cantabria 5/2026 (BOE-A-2026-10431) was searched and does not touch the scale. AEAT Manual de Renta 2025 shows the identical scale; the Ministerio de Hacienda report Medidas 2026 states six brackets, 8.50% to 24.50% above 90,000 and no scale change vs 2025. Cantabria is not among the communities that regulate their own personal minimum, so the state minimum applies.",
+    "sources": [
+      {"url": "https://www.boe.es/buscar/act.php?id=BOCT-c-2008-90028", "doc": "Decreto Legislativo 62/2008, consolidated text on BOE, art. 1", "read": "verbatim"},
+      {"url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-1373", "doc": "Ley de Cantabria 3/2023 de Medidas Fiscales y Administrativas, art. 3.Uno", "read": "verbatim"},
+      {"url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-10431", "doc": "Ley de Cantabria 5/2026 de Medidas Fiscales y Administrativas para 2026", "read": "searched for scale changes, none found"},
+      {"url": "https://sede.agenciatributaria.gob.es/Sede/ayuda/manuales-videos-folletos/manuales-practicos/irpf-2025/c15-calculo-impuesto-determinacion-cuotas-integras/gravamen-base-liquidable-general/gravamen-autonomico/comunidad-autonoma-cantabria.html", "doc": "AEAT Manual practico de Renta 2025, Cantabria autonomic scale (exercise 2025)", "read": "verbatim (independent cross-check)"},
+      {"url": "https://www.hacienda.gob.es/sgfal/financiacionterritorial/autonomica/capitulo-i-tributacion-autonomica-2026.pdf", "doc": "Ministerio de Hacienda, Tributacion Autonomica. Medidas 2026, chapter I, section 1.1 and 1.2", "read": "verbatim text; annex charts are images"}
+    ],
+    "unverified": [],
+    "notes": [
+      "No `personal_minimum` key: Cantabria uses the state minimum, so the module falls back to the state value.",
+      "NOT modelled: regional deductions (rent, etc.), savings-base scale, joint filing."
+    ]
+  }
+}

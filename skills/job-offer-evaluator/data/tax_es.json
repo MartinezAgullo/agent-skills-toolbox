@@ -2,37 +2,37 @@
   "country": "ES",
   "tax_year": 2026,
   "verified_on": "2026-11-09",
-  "verified_by": "Read from official pages: RETA 2026 tramos and minimum bases (Seguridad Social page), Regimen General max base 5,101.20/month (BOE Orden PJC/297/2026, verbatim), state IRPF scale (Ley 35/2006 art. 63 on BOE), personal minimum 5,550 (AEAT 2026 retention algorithm). Taken from summaries or computed, not read verbatim: RETA contribution rates (BOE summary; total 31.5% cross-checked against 205.88 and 607.35 published by third-party guides), employee SS 6.50% (4.70 + 1.55 + 0.10 + MEI 0.15, from search summaries of BOE/Seg Social), combined state+autonomic scale (autonomic scale assumed equal to state; regions differ, use the regional shift).",
+  "verified_by": "Read from official pages: RETA 2026 tramos and minimum bases (Seguridad Social page), Regimen General max base 5,101.20/month (BOE Orden PJC/297/2026, verbatim), STATE IRPF scale (Ley 35/2006 art. 63.1 on BOE, read verbatim 2026-11-09 and matched to the AEAT Manual de Renta 2025 'Gravamen estatal' page; the previous combined scale had a stale 47% top rate, the state top rate above 300,000 is 24.5%), personal minimum 5,550 (AEAT 2026 retention algorithm). The autonomic part of IRPF is NOT in this file: it lives per community in data/tax_es_regions.json with its own sources. Taken from summaries or computed, not read verbatim: RETA contribution rates (BOE summary; total 31.5% cross-checked against 205.88 and 607.35 published by third-party guides), employee SS 6.50% (4.70 + 1.55 + 0.10 + MEI 0.15, from search summaries of BOE/Seg Social).",
   "sources": [
     "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-7296",
     "https://www.seg-social.es/wps/portal/wss/internet/HerramientasWeb/9d2fd4f1-ab0f-42a6-8d10-2e74b378ee24?changeLanguage=es",
     "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764",
     "https://sede.agenciatributaria.gob.es/static_files/Sede/Programas_ayuda/Retenciones/2026/ALGORITMO_2026.pdf"
   ],
-  "irpf_scale": [
+  "irpf_state_scale": [
     [
       12450,
-      0.19
+      0.095
     ],
     [
       20200,
-      0.24
+      0.12
     ],
     [
       35200,
-      0.3
+      0.15
     ],
     [
       60000,
-      0.37
+      0.185
     ],
     [
       300000,
-      0.45
+      0.225
     ],
     [
       null,
-      0.47
+      0.245
     ]
   ],
   "personal_minimum": 5550,
@@ -107,7 +107,53 @@
   "autonomo_rate_breakdown": "contingencias comunes 28.30 + profesionales 1.30 + cese de actividad 0.90 + FP 0.10 + MEI 0.90; cuota shown is at each tramo's MINIMUM base (the user may choose a higher base)",
   "unverified": [
     "employee_other_expenses 2000 EUR not re-read for 2026",
-    "employee MEI 0.15% shown with inconsistent rows on the Seg Social page",
-    "autonomic IRPF scale assumed equal to the state scale"
+    "employee MEI 0.15% shown with inconsistent rows on the Seg Social page"
+  ],
+  "regions_not_modelled": [
+    {
+      "id": "pais_vasco",
+      "name": "País Vasco",
+      "aliases": [
+        "País Vasco",
+        "Pais Vasco",
+        "Euskadi",
+        "Basque Country",
+        "Álava",
+        "Alava",
+        "Araba",
+        "Bizkaia",
+        "Vizcaya",
+        "Gipuzkoa",
+        "Guipúzcoa",
+        "Guipuzcoa"
+      ],
+      "reason": "régimen foral, con ley de IRPF propia"
+    },
+    {
+      "id": "navarra",
+      "name": "Navarra",
+      "aliases": [
+        "Navarra",
+        "Comunidad Foral de Navarra",
+        "Nafarroa"
+      ],
+      "reason": "régimen foral, con ley de IRPF propia"
+    },
+    {
+      "id": "ceuta",
+      "name": "Ceuta",
+      "aliases": [
+        "Ceuta"
+      ],
+      "reason": "escala especial del art. 65 Ley 35/2006"
+    },
+    {
+      "id": "melilla",
+      "name": "Melilla",
+      "aliases": [
+        "Melilla"
+      ],
+      "reason": "escala especial del art. 65 Ley 35/2006"
+    }
   ]
 }

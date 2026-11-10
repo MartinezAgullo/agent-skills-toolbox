@@ -8,6 +8,9 @@ APPROXIMATE. Currency model:
   * --hourly is in the PAY currency; --fx converts pay currency -> offer-country currency (ES-taxed USD pay: 0.89)
   * --to-eur converts offer-country currency -> EUR (US-taxed USD pay: --fx 1 --to-eur 0.89)
   * benefits and extra costs are always in EUR
+Spain (ES): the IRPF autonomic scale depends on the community of FISCAL RESIDENCE (where you live on 31 December,
+not where the job or the employer is). Pass it with --region (current) and --offer-region (offer, default: same as
+--region). Without data for the community the state scale is used and a visible WARNING says so.
 Run: python3 scripts/net_compare.py --help
 
 TERMINOLOGY (full glossary: references/terminology.md)
@@ -45,6 +48,27 @@ def parse_status(value: str) -> str:
             f"unknown contract type '{value}'. Use employee or self_employed (aliases: {', '.join(sorted(STATUS_ALIASES))})")
 
 
+def collect_warnings(sides: list) -> list:
+    """Gather data-freshness and approximation warnings for each side (current job, offer) without repeating one.
+
+    `sides` holds `(label, country_code, tax_module, requested_region)`. Staleness texts are printed once.
+    Region notices (state-scale fallback, region ignored) get a "[current job]" / "[offer]" prefix only when
+    they apply to just one side, so the reader knows which job they refer to.
+    """
+    lines, regional = [], {}
+    for label, cc, tm, region in sides:
+        items = tm.staleness_items() if hasattr(tm, "staleness_items") else [tm.staleness()]
+        lines.extend(t for t in items if t and t not in lines)
+        notices = list(getattr(tm, "approximation_warnings", lambda: [])())
+        if region and not getattr(tm, "supports_region", False):
+            notices.append(f"--region/--offer-region '{region}' is ignored for {cc}: only Spain (ES) has regions.")
+        for text in notices:
+            regional.setdefault(text, []).append(label)
+    for text, labels in regional.items():
+        lines.append(text if len(labels) == len(sides) else f"[{' + '.join(labels)}] {text}")
+    return lines
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--country", default="ES", help="tax module for the CURRENT job (ES, US)")
@@ -65,24 +89,25 @@ def main():
     p.add_argument("--unpaid-gap-months", type=float, default=0, help="expected months without billing")
     p.add_argument("--offer-benefits", type=float, default=0, help="EUR/yr value of offer's non-cash benefits")
     p.add_argument("--offer-extra-costs", type=float, default=0, help="EUR/yr offer out-of-pocket costs")
-    p.add_argument("--irpf-shift", "--region-adjust", dest="region", type=float, default=0.0,
-                   help="regional adjustment for the current country (ES: IRPF pp shift e.g. -0.015 Madrid; US: avg state tax rate)")
-    p.add_argument("--offer-region-adjust", type=float, default=None, help="same, for the offer country (default: --irpf-shift when same country)")
+    p.add_argument("--region", default=None,
+                   help="ES only: autonomous community of FISCAL RESIDENCE of the current job (e.g. madrid, cataluna, comunitat_valenciana, andalucia, cantabria; accents and common aliases accepted)")
+    p.add_argument("--offer-region", default=None,
+                   help="ES only: community of fiscal residence under the offer (default: same as --region when the offer is taxed in the same country)")
+    p.add_argument("--irpf-shift", "--region-adjust", dest="shift", type=float, default=0.0,
+                   help="OPTIONAL manual adjustment for the current country (ES: pp added to every rate of the AUTONOMIC scale, on top of --region, e.g. -0.01; US: avg state tax rate)")
+    p.add_argument("--offer-region-adjust", dest="offer_shift", type=float, default=None, help="same manual adjustment, for the offer country (default: --irpf-shift when same country)")
     p.add_argument("--threshold", type=float, default=None, help="minimum effective-net uplift %% required; prints MET/NOT MET")
     a = p.parse_args()
 
     off_cc = (a.offer_country or a.country).upper()
-    off_region = a.offer_region_adjust if a.offer_region_adjust is not None else (a.region if off_cc == a.country.upper() else 0.0)
-    cur = taxmods.load(a.country, a.region)
-    off = taxmods.load(off_cc, off_region)
+    same_country = off_cc == a.country.upper()
+    off_shift = a.offer_shift if a.offer_shift is not None else (a.shift if same_country else 0.0)
+    off_region = a.offer_region if a.offer_region is not None else (a.region if same_country else None)
+    cur = taxmods.load(a.country, a.shift, a.region)
+    off = taxmods.load(off_cc, off_shift, off_region)
     cur_ccy, off_ccy = getattr(cur, "currency", "EUR"), getattr(off, "currency", "EUR")
 
-    warnings = []
-    for tm in (cur, off):
-        w = tm.staleness()
-        if w and w not in warnings:
-            warnings.append(w)
-    for w in warnings:
+    for w in collect_warnings([("current job", a.country.upper(), cur, a.region), ("offer", off_cc, off, off_region)]):
         print(f"WARNING  {w}")
 
     # current job
